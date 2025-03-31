@@ -1,3 +1,5 @@
+package dmelectrauto;
+
 public class Batterie {
     private String reference;
     private String fabricant;
@@ -30,10 +32,27 @@ public class Batterie {
     }
 
     public void setChargeActuelle(int chargeActuelle) {
-        this.chargeActuelle = Math.min(chargeActuelle, chargeMax);
+        if (chargeActuelle < 0) {
+            this.chargeActuelle = 0;
+        } else {
+            this.chargeActuelle = Math.min(chargeActuelle, chargeMax);
+        }
     }
 
     public TypeRecharge getTypeRecharge() {
         return typeRecharge;
+    }
+
+    public boolean estCompatible(TypeRecharge type) {
+        // Toutes les batteries supportent la charge normale
+        if (type.getNom().equals("normale")) {
+            return true;
+        }
+        // Vérification de la compatibilité avec le type de recharge
+        return this.typeRecharge.getNom().equals(type.getNom());
+    }
+
+    public int getPourcentageCharge() {
+        return (chargeActuelle * 100) / chargeMax;
     }
 }
