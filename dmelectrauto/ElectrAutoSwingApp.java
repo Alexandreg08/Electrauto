@@ -14,7 +14,7 @@ public class ElectrAutoSwingApp extends JFrame {
     private boolean priseConnectee = false;
     
     public ElectrAutoSwingApp() {
-        // Configuration de la fenêtre
+        // Configuration de la fenêtre (interface)
         setTitle("ElectrAuto - Gestion des bornes de recharge");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 600);
